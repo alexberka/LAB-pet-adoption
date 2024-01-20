@@ -9,7 +9,38 @@
 
 #filter-buttons {
   margin: 20px auto;
-  width: 80%;
+  width: 500px;
   display: flex;
   justify-content: space-around;
+}
+
+form {
+  margin: 20px auto;
+  width: 500px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+form h2 {
+  margin: 2px auto 8px;
+  text-align: center;
+}
+
+.form-check {
+  display: inline-block;
+  margin-right: 0 auto;
+}
+
+.radio-inline {
+  margin-bottom: 16px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 6px 12px;
+  display: flex;
+  gap: 25px;
+}
+
+form p {
+  margin-bottom: 8px;
 }
