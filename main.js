@@ -241,21 +241,41 @@ const pets = [
     }
   ];
 
+  const queueCards = (petsDom) => {
+    let domString = "";
 
-  let domString = "";
-
-  for (const pet of pets) {
-    domString += `<div class="card" style="width: 18rem;">
-                    <img src="${pet.imageUrl}" class="card-img-top" alt="Photo of ${pet.name}">
-                    <div class="card-body">
-                      <h5 class="card-title">${pet.name}</h5>
-                      <p class="card-text">${pet.color}</p>
-                      <p class="card-text">${pet.specialSkill}</p>
-                      <p class="card-text">${pet.type}</p>
-                    </div>
-                  </div>`
+    for (const pet of petsDom) {
+      domString += `<div class="card" style="width: 18rem;">
+                      <img src="${pet.imageUrl}" class="card-img-top" alt="Photo of ${pet.name}">
+                      <div class="card-body">
+                        <h5 class="card-title">${pet.name}</h5>
+                        <p class="card-text">${pet.color}</p>
+                        <p class="card-text">${pet.specialSkill}</p>
+                        <p class="card-text">${pet.type}</p>
+                      </div>
+                    </div>`
+    }
+    renderToDom("#pet-bucket", domString)
   }
 
-  const petBucket = document.querySelector("#pet-bucket")
+  window.addEventListener("load", () => queueCards(pets));
 
-  petBucket.innerHTML = domString
+  const petBucket = document.querySelector("#pet-bucket")
+  const filterButtons = document.querySelector("#filter-buttons")
+
+  filterButtons.addEventListener(("click"), (e) => {
+    const sortType = e.target.id
+    if (sortType === "cat-btn") {
+      queueCards(pets.filter((pet) => pet.type === "cat"))
+    } else if (sortType === "dog-btn") {
+      queueCards(pets.filter((pet) => pet.type === "dog"))
+    } else if (sortType === "dino-btn") {
+      queueCards(pets.filter((pet) => pet.type === "dino"))
+    } else if (sortType === "all-btn") {
+      queueCards(pets)
+    }
+  })
+
+  const renderToDom = (divID, domString) => {
+    document.querySelector(divID).innerHTML = domString;
+  }

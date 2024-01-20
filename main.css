@@ -6,3 +6,10 @@
   flex-flow: row wrap;
   gap: 20px;
 }
+
+#filter-buttons {
+  margin: 20px auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
