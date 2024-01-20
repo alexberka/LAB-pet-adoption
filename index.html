@@ -16,6 +16,53 @@
     <button type="button" id="all-btn" class="btn btn-dark">All</button>
   </div>
   <div id="pet-bucket"></div>
+  <form>
+    <h2>New Pet Submission Form</h2>
+    <div class="mb-3">
+      <label for="petName" class="form-label">Pet Name</label>
+      <input type="text" class="form-control" id="petName">
+    </div>
+    <div class="mb-3">
+      <label for="petColor" class="form-label">Pet Color</label>
+      <input type="text" class="form-control" id="petColor">
+    </div>
+    <div class="mb-3">
+      <label for="specialSkills" class="form-label">Special Skill(s)</label>
+      <input type="text" class="form-control" id="specialSkills">
+    </div>
+    <p>Pet Type</p>
+    <div class="radio-inline">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="petType" id="cat-radio">
+        <label class="form-check-label" for="cat-radio">
+          Cat
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="petType" id="dog-radio">
+        <label class="form-check-label" for="dog-radio">
+          Dog
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="petType" id="dino-radio">
+        <label class="form-check-label" for="dino-radio">
+          Dino
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="petType" id="other-radio" checked>
+        <label class="form-check-label" for="other-radio">
+          Other
+        </label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="imageUrl" class="form-label">Image URL</label>
+      <input type="url" class="form-control" id="imageUrl">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
   <script src="main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

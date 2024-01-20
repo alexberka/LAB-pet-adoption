@@ -243,7 +243,6 @@ const pets = [
 
   const queueCards = (petsDom) => {
     let domString = "";
-
     for (const pet of petsDom) {
       domString += `<div class="card" style="width: 18rem;">
                       <img src="${pet.imageUrl}" class="card-img-top" alt="Photo of ${pet.name}">
@@ -262,6 +261,37 @@ const pets = [
 
   const petBucket = document.querySelector("#pet-bucket")
   const filterButtons = document.querySelector("#filter-buttons")
+  const newPetForm = document.querySelector("form")
+
+  newPetForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const getPetType = () => {
+      switch (true) {
+        case (document.querySelector("#cat-radio").checked):
+          return "cat";
+        case (document.querySelector("#dog-radio").checked):
+          return "dog";
+        case (document.querySelector("#dino-radio").checked):
+          return "dino";
+        default:
+          return "other";
+      }
+    }
+
+    const newPet = {
+      id: pets[pets.length-1].id + 1,
+      name: newPetForm.petName.value,
+      color: newPetForm.petColor.value,
+      specialSkill: newPetForm.specialSkills.value,
+      type: getPetType(),
+      imageUrl: newPetForm.imageUrl.value
+    }
+
+    pets.push(newPet);
+    queueCards(pets);
+    newPetForm.reset();
+  })
 
   filterButtons.addEventListener(("click"), (e) => {
     const sortType = e.target.id
