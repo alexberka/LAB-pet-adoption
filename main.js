@@ -1,3 +1,5 @@
+let currentDisplay = "all"
+
 const pets = [
     {
       id: 1,
@@ -288,9 +290,10 @@ const pets = [
       type: getPetType(),
       imageUrl: newPetForm.imageUrl.value
     }
-
+    
     pets.push(newPet);
-    queueCards(pets);
+    currentDisplay = newPet.type != "other" ? newPet.type : "all"
+    filterPets(currentDisplay)
     newPetForm.reset();
   })
 
@@ -299,19 +302,24 @@ const pets = [
       const [,petID] = e.target.id.split("--")
       const delPos = pets.findIndex((del) => del.id === Number(petID))
       pets.splice(delPos, 1)
-      console.log(pets)
-      queueCards(pets)
+      filterPets(currentDisplay)
     }
   })
 
   filterButtons.addEventListener(("click"), (e) => {
-    const [sortType, ] = e.target.id.split("-")
+    const [type, ] = e.target.id.split("-")
+    filterPets(type)
+  })
+
+  const filterPets = (sortType) => {
     if (sortType === "all") {
+      currentDisplay = "all"
       queueCards(pets)
     } else {
+      currentDisplay = sortType
       queueCards(pets.filter((pet) => pet.type === sortType))
     }
-  })
+  }
 
   const renderToDom = (divID, domString) => {
     document.querySelector(divID).innerHTML = domString;

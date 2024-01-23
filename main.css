@@ -9,9 +9,15 @@
 
 #filter-buttons {
   margin: 20px auto;
-  width: 500px;
+  width: 79%;
   display: flex;
   justify-content: space-around;
+  position: sticky;
+  top: 10px;
+  z-index: 3;
+  background: #77889930;
+  padding: 10px 200px;
+  border-radius: 5px;
 }
 
 .pet-display {
